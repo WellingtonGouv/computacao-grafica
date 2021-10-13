@@ -9,8 +9,8 @@
 
  PrimeiroPrograma - Prof. Leandro Alves Neves
  Um programa OpenGL simples que abre uma janela GLUT
- Este c�digo est� baseado no Simple.c, exemplo 
- dispon�vel no livro "OpenGL SuperBible" e "OpenGl: uma abordagem pr�tica e objetiva" , 
+ Este código está baseado no Simple.c, exemplo 
+ disponível no livro "OpenGL SuperBible" e "OpenGl: uma abordagem prática e objetiva" , 
  2nd Edition, de Richard S. e Wright Jr.*/
 
 #include <stdlib.h>
@@ -21,58 +21,39 @@ void DISPLAY ();
 void Desenha();
 
 
-// Inicializa par�metros de rendering
+// Inicializa parâmetros de rendering
 void DISPLAY ()
 {   
-    // Define a cor de fundo da janela de visualiza��o como preta
+    // Define a cor de fundo da janela de visualização como preta
     glClearColor(1, 0, 0, 0);
-    glMatrixMode(GL_PROJECTION); //Ativa matriz de proje��o
-    glLoadIdentity();//"Limpa" ou "transforma" a matriz em identidade, reduzindo poss�veis erros.    
-    gluOrtho2D(-200,200,-200,200);//Define tipo de proje��o (2D) e o tamanho
-    glMatrixMode(GL_MODELVIEW);//Ativa matriz de visualiza��o
-    glLoadIdentity();//"Limpa" ou "transforma" a matriz em identidade, reduzindo poss�veis erros.
-	//Limpa a janela de visualiza��o com a cor de fundo especificada
-    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT); /* "limpa" um buffer particular ou combina��es de buffers, 
-                                                         onde buffer � uma �rea de armazenamento para informa��es da imagem. 
-                                                        Nesse caso, est� "limpando os buffers para suportarem anima��es */
-   //Chamada para Fun��o  ou fun��es para desenhar o objeto/cena...
+    glMatrixMode(GL_PROJECTION); //Ativa matriz de projeção
+    glLoadIdentity();//"Limpa" ou "transforma" a matriz em identidade, reduzindo possíveis erros.    
+    gluOrtho2D(-200,200,-200,200);//Define tipo de projeção (2D) e o tamanho
+    glMatrixMode(GL_MODELVIEW);//Ativa matriz de visualização
+    glLoadIdentity();//"Limpa" ou "transforma" a matriz em identidade, reduzindo possíveis erros.
+	//Limpa a janela de visualização com a cor de fundo especificada
+    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT); /* "limpa" um buffer particular ou combinações de buffers, 
+                                                         onde buffer é uma área de armazenamento para informações da imagem. 
+                                                        Nesse caso, está "limpando os buffers para suportarem animações */
+   //Chamada para Função  ou funções para desenhar o objeto/cena...
    //---------------------------------------------------------------- 
    Desenha(); 
    glutSwapBuffers();
    
 }
 void Desenha()
-{  int x=0, y=0,teste=0;
+{  int x=5, y=5;
    
   glColor3f(1,1,1);//Define uma cor para a primitiva	
-  /* Exercicio
   do{
-     do{
       glBegin(GL_POINTS);
 	   glVertex3f(x,y,0);
            glVertex3f(-x,y,0);
            glVertex3f(-x,-y,0);
 	   glVertex3f(x,-y,0);
         glEnd();	//Executa os comandos OpenGL 
-      x+=5;
+      x+=5; y+=5;
    }while(x<=200);
-   y+=5;
-   x=0;
-  }while(y<=200);*/
-  do{
-     do{
-      glBegin(GL_POINTS);
-	   glVertex3f(x,y,0);
-           //glVertex3f(-x,y,0);
-           //glVertex3f(-x,-y,0);
-	   glVertex3f(x,-y,0);
-        glEnd();	//Executa os comandos OpenGL 
-      x+=1;
-   }while(x<=200);
-   y+=5;
-   x=0;
-  }while(y<=200);
-  
 }
 
 int main(int argc,char **argv)
@@ -80,8 +61,8 @@ int main(int argc,char **argv)
    glutInit(&argc, argv); // Initializes glut
     
    glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB | GLUT_DEPTH);
-   /*Avisa a GLUT que modo de exibi��o deve ser usado quando a janela � criada. 
-   //  Nesse caso, permite: uma �nica janela; cores compostas por Verm. Verde e Azul; e, */
+   /*Avisa a GLUT que modo de exibição deve ser usado quando a janela é criada. 
+   //  Nesse caso, permite: uma única janela; cores compostas por Verm. Verde e Azul; e, */
    glutInitWindowSize(400,400);
    glutInitWindowPosition(100,100);
    glutCreateWindow("Aula 01 (OpenGL) - Meu Primeiro Programa");
